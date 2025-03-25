@@ -1,10 +1,17 @@
+"use client";
 import Link from 'next/link';
 import React, { useState } from "react";
 import style from "@/app/style/styles.module.css";
-
+import Button from "@/app/ui/Button";
 
 export default function Navigation() {
-
+    const [isOpen, setIsOpen] = useState<{ [key: string]: boolean }>({});
+    const onleMenu = (menu: string) => {
+        setIsOpen((prev) => ({
+            ...prev,
+            [menu]: !prev[menu], // Chỉ thay đổi trạng thái menu được bấm
+        }));
+    }
     const [menuVisible, setMenuVisible] = useState(false);
 
     const toggleMenu = () => {
@@ -25,8 +32,7 @@ export default function Navigation() {
                 </div>
                 <div className='flex-grow-[1]'></div>
                 <div
-                    // style={{ display: 'none' }}
-                    className={`overflow-visible transition-all duration-500 ease-in-out ${style.menuMain} ${menuVisible ? "!block" : ""} transition-all duration-500 ease-in-out`}
+                    className={`overflow-visible transition-all duration-500 ease-in-out ${style.menuMain} transition-all duration-500 ease-in-out`}
                 >
                     <ul className={`${style.afHover}`}>
                         <li className='pb-7 pt-7 cursor-pointer'>
@@ -149,16 +155,13 @@ export default function Navigation() {
                                         href={'https://www.bic.vn/'}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                    >
-                                        Bảo hiểm Bic
-                                    </Link>
+                                    >Bảo hiểm Bic</Link>
                                 </li>
                                 <li>
                                     <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className='text-white !text-left' href={'https://www.nganluc.vn/'}
-                                    >
+                                        className='text-white !text-left' href={'https://www.nganluc.com/'}>
                                         Niad
                                     </Link>
                                 </li>
@@ -196,23 +199,40 @@ export default function Navigation() {
                     Menu
                 </button>
                 {/* mobile */}
-                {/* <div
+                <div
                     style={{ display: 'none' }}
                     className={`overflow-visible transition-all duration-500 ease-in-out ${style.menuMain} ${menuVisible ? "!block" : ""} transition-all duration-500 ease-in-out`}
                 >
                     <ul className={`${style.afHover} w-[90%]`}>
-                        <li className='pb-7 pt-7 cursor-pointer'>
+                        <li className='pb-3 pt-7 cursor-pointer'>
                             <div className=' flex justify-between'>
                                 <Link href="/" className="hover:text-blue-700 transition duration-300 font-bold">
                                     Trang chủ
                                 </Link>
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                <button
+                                    onClick={() => onleMenu("home")}
+                                    className="p-2 bg-blue-500 rounded"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className={`size-5 text-white transition-transform duration-300 ${isOpen["home"] ? "rotate-180" : "rotate-0"}`}
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d={isOpen["home"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                        />
                                     </svg>
                                 </button>
                             </div>
-                            <ul className='mt-4' style={{ display: 'block' }}>
+                            <ul
+                                className={`m-4 ${isOpen["home"] ? "!block" : "!hidden"}`}
+
+                            >
                                 <li className='!ml-3 py-3'>
                                     <Link className='text-white !text-left' href={'/introduce'}> Về chúng tôi </Link>
                                 </li>
@@ -227,42 +247,287 @@ export default function Navigation() {
                                 </li>
                             </ul>
                         </li>
-                        <li className='pb-7 pt-7 cursor-pointer text-white flex justify-between'>
-                            Sản phẩm
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </button>
-                        </li>
-                        <li className='pb-7 pt-7 cursor-pointer flex justify-between'>
-                            <Link href="/partner" className="hover:text-blue-700 transition duration-300 font-bold">
-                                Công ty liên danh
-                            </Link>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </button>
-                        </li>
-                        <li className='pb-7 pt-7 cursor-pointer '>
+
+                        <li className='pb-3 pt-3 cursor-pointer text-white'>
+                            <div className=' flex justify-between'>
+                                <Link href={'#'}>
+                                    Sản phẩm
+                                </Link>
+                                <button
+                                    onClick={() => onleMenu("project")}
+                                    className="p-2 bg-blue-500 rounded"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className={`size-5 text-white transition-transform duration-300 ${isOpen["project"] ? "rotate-180" : "rotate-0"}`}
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d={isOpen["project"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                            <ul
+                                className={`m-4 ${isOpen["project"] ? "!block" : "!hidden"}`}
+
+                            >
+                                <li className='!ml-3 py-3'>
+                                    <div className=' flex justify-between'>
+                                        <Link className='text-white justify-between !text-left' href={'/product/ai-in-management'}> (AI) Trong hệ thống quản trị</Link>
+                                        <button
+                                            onClick={() => onleMenu("aIInManagement")}
+                                            className="p-2 bg-blue-500 rounded"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className={`size-5 text-white transition-transform duration-300 ${isOpen["aIInManagement"] ? "rotate-180" : "rotate-0"}`}
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d={isOpen["aIInManagement"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <ul
+                                        className={`m-4 ${isOpen["aIInManagement"] ? "!block" : "!hidden"}`}
+
+                                    >
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/ai-in-management/security-monitoring'}>  Giám sát ngân hàng GD tiền mặt</Link>
+                                        </li>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/ai-in-management/timekeeping'}>Chấm công tính lương</Link>
+                                        </li>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/ai-in-management/monitor-entry-and-exit'}>Giám sát xe chở tiền cho ngân hàng</Link>
+                                        </li>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/ai-in-management/online-patient-care'}>Giám sát sản xuất</Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <div className=' flex justify-between'>
+                                        <Link className='text-white justify-between !text-left' href={'/product/hospital/smart-hospital'}>
+                                            phần mềm quản trị bệnh viện
+                                        </Link>
+                                        <button
+                                            onClick={() => onleMenu("smartHospital")}
+                                            className="p-2 bg-blue-500 rounded"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className={`size-5 text-white transition-transform duration-300 ${isOpen["smartHospital"] ? "rotate-180" : "rotate-0"}`}
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d={isOpen["smartHospital"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <ul
+                                        className={`m-4 ${isOpen["smartHospital"] ? "!block" : "!hidden"}`}
+
+                                    >
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/hospital/device-management'}> Vật tư y tế, thiết bị </Link>
+                                        </li>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/hospital/smart-hospital'}>Phần mềm HIS & LIS</Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <div className=' flex justify-between'>
+                                        <Link className='text-white !text-left' href={'/product/patient-care'}>Phần mềm chăm sóc bệnh nhân online</Link>
+                                        <button
+                                            onClick={() => onleMenu("patientCare")}
+                                            className="p-2 bg-blue-500 rounded"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className={`size-5 text-white transition-transform duration-300 ${isOpen["patientCare"] ? "rotate-180" : "rotate-0"}`}
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d={isOpen["patientCare"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <ul className={`m-4 ${isOpen["patientCare"] ? "!block" : "!hidden"}`}>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/patient-care/chat-ai'}>Tư vấn bệnh nhân</Link>
+                                        </li>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/patient-care/remote-registration'}>Đăng ký khám từ xa</Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <div className=' flex justify-between'>
+                                        <Link className='text-white !text-left' href={'/product/payment-kiosk'}>Kiosk tự phục vụ Đề án 06/CP</Link>
+                                        <button
+                                            onClick={() => onleMenu("paymentKiosk")}
+                                            className="p-2 bg-blue-500 rounded"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className={`size-5 text-white transition-transform duration-300 ${isOpen["paymentKiosk"] ? "rotate-180" : "rotate-0"}`}
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d={isOpen["paymentKiosk"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <ul className={`m-4 ${isOpen["paymentKiosk"] ? "!block" : "!hidden"}`}>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/self-service-kios/payment-kiosk'}>Quản lý thanh toán không tiền mặt bệnh viện </Link>
+                                        </li>
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/self-service-kios/public-self-service-kiosk'}>Tự phục vụ công dân & đăng ký online</Link>
+                                        </li>
+                                    </ul>
+                                </li >
+                                <li className='!ml-3 py-3'>
+                                    <div className=' flex justify-between'>
+                                        <Link className='text-white justify-between !text-left' href={'/product/big-data/security-CSDL'}>Big data</Link>
+                                        <button
+                                            onClick={() => onleMenu("CSDL")}
+                                            className="p-2 bg-blue-500 rounded"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                strokeWidth="1.5"
+                                                stroke="currentColor"
+                                                className={`size-5 text-white transition-transform duration-300 ${isOpen["CSDL"] ? "rotate-180" : "rotate-0"}`}
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d={isOpen["CSDL"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <ul
+                                        className={`m-4 ${isOpen["CSDL"] ? "!block" : "!hidden"}`}
+                                    >
+                                        <li className='!ml-3 py-3'>
+                                            <Link className='text-white !text-left' href={'/product/big-data/security-CSDL'}> Bảo mật an toàn TT cơ sở dữ liệu </Link>
+                                        </li>
+                                    </ul>
+                                </li >
+                            </ul >
+                        </li >
+                        <li className='pb-3 pt-3 cursor-pointer'>
+                            <div className=' flex justify-between'>
+                                <Link href="/partner" className="hover:text-blue-700 transition duration-300 font-bold">
+                                    Công ty liên danh
+                                </Link>
+                                <button
+                                    onClick={() => onleMenu("cty")}
+                                    className="p-2 bg-blue-500 rounded"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className={`size-5 text-white transition-transform duration-300 ${isOpen["cty"] ? "rotate-180" : "rotate-0"}`}
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d={isOpen["cty"] ? "m4.5 15.75 7.5-7.5 7.5 7.5" : "m8.25 4.5 7.5 7.5-7.5 7.5"}
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                            <ul
+                                className={`m-4 ${isOpen["cty"] ? "!block" : "!hidden"}`}
+
+                            >
+                                <li className='!ml-3 py-3'>
+                                    <Link className='text-white !text-left' href={'#'}> Hitech </Link>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <Link
+                                        className='text-white !text-left'
+                                        href={'https://www.bic.vn/'}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >Bảo hiểm Bic</Link>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className='text-white !text-left' href={'https://www.nganluc.com/'}>
+                                        Niad
+                                    </Link>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <Link
+                                        className='text-white !text - left'
+                                        href={'https://www.hitc.vn/'}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    > Viễn thông HITC</Link >
+                                </li >
+                            </ul >
+                        </li >
+                        <li className='pb-3 pt-3 cursor-pointer '>
                             <Link href="/recruitment" className="hover:text-blue-700 transition duration-300 font-bold">
                                 Thông tin tuyển dụng
                             </Link>
                         </li>
-                        <li className='pb-7 pt-7 cursor-pointer '>
+                        <li className='pb-3 pt-3 cursor-pointer '>
                             <Link href="/news" className="hover:text-blue-700 transition duration-300 font-bold">
                                 Tin tức
                             </Link>
                         </li>
-                        <li className='pb-7 pt-7 cursor-pointer'>
+                        <li className='pb-3 pt-3 cursor-pointer'>
                             <Link href="/contact" className="hover:text-blue-700 transition duration-300 font-bold">
                                 Liên hệ
                             </Link>
                         </li>
-                    </ul>
-                </div> */}
-            </div>
+                    </ul >
+                </div >
+            </div >
         </nav >
     )
 }
