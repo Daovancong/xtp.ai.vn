@@ -25,6 +25,7 @@ export default function Navigation() {
                 </div>
                 <div className='flex-grow-[1]'></div>
                 <div
+                    // style={{ display: 'none' }}
                     className={`overflow-visible transition-all duration-500 ease-in-out ${style.menuMain} ${menuVisible ? "!block" : ""} transition-all duration-500 ease-in-out`}
                 >
                     <ul className={`${style.afHover}`}>
@@ -148,13 +149,17 @@ export default function Navigation() {
                                         href={'https://www.bic.vn/'}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                    >Bảo hiểm Bic</Link>
+                                    >
+                                        Bảo hiểm Bic
+                                    </Link>
                                 </li>
                                 <li>
                                     <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className='text-white !text-left' href={'https://www.edreams.com/offers/flights/airline/VN/vietnam-airlines/?mktportal=bing&utm_id=bi_cmp-614041404_adg-1164384646735721_ad-72774248682417_kwd-72774729965455_dev-c_ext-_locphy-142921_mtype-e_ntw-o&utm_term=72774729965455&utm_content=1164384646735721&msclkid=76311a57fe331812ec6b7df8ca14984a&utm_source=bing&utm_medium=cpc&utm_campaign=B-E-GB-FL-AIRLINE-SEA-PC-R'}>Đặt vé máy bay vé máy bay vietnam airline
+                                        className='text-white !text-left' href={'https://www.nganluc.vn/'}
+                                    >
+                                        Niad
                                     </Link>
                                 </li>
                                 <li>
@@ -184,12 +189,79 @@ export default function Navigation() {
                         </li>
                     </ul>
                 </div>
-                <div
+                <button
                     className={`${style.togglerMenu} !hidden`}
                     onClick={toggleMenu}
                 >
                     Menu
-                </div>
+                </button>
+                {/* mobile */}
+                {/* <div
+                    style={{ display: 'none' }}
+                    className={`overflow-visible transition-all duration-500 ease-in-out ${style.menuMain} ${menuVisible ? "!block" : ""} transition-all duration-500 ease-in-out`}
+                >
+                    <ul className={`${style.afHover} w-[90%]`}>
+                        <li className='pb-7 pt-7 cursor-pointer'>
+                            <div className=' flex justify-between'>
+                                <Link href="/" className="hover:text-blue-700 transition duration-300 font-bold">
+                                    Trang chủ
+                                </Link>
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <ul className='mt-4' style={{ display: 'block' }}>
+                                <li className='!ml-3 py-3'>
+                                    <Link className='text-white !text-left' href={'/introduce'}> Về chúng tôi </Link>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <Link className='text-white !text-left' href={'/introduce/structure'}>Cơ cấu tổ chức</Link>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <Link className='text-white !text-left' href={'/introduce/corevalues'}>Giá trị cốt lõi</Link>
+                                </li>
+                                <li className='!ml-3 py-3'>
+                                    <Link className='text-white !text-left' href={'/introduce/partandcust'}>Đối tác/Khách hàng</Link>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className='pb-7 pt-7 cursor-pointer text-white flex justify-between'>
+                            Sản phẩm
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li className='pb-7 pt-7 cursor-pointer flex justify-between'>
+                            <Link href="/partner" className="hover:text-blue-700 transition duration-300 font-bold">
+                                Công ty liên danh
+                            </Link>
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li className='pb-7 pt-7 cursor-pointer '>
+                            <Link href="/recruitment" className="hover:text-blue-700 transition duration-300 font-bold">
+                                Thông tin tuyển dụng
+                            </Link>
+                        </li>
+                        <li className='pb-7 pt-7 cursor-pointer '>
+                            <Link href="/news" className="hover:text-blue-700 transition duration-300 font-bold">
+                                Tin tức
+                            </Link>
+                        </li>
+                        <li className='pb-7 pt-7 cursor-pointer'>
+                            <Link href="/contact" className="hover:text-blue-700 transition duration-300 font-bold">
+                                Liên hệ
+                            </Link>
+                        </li>
+                    </ul>
+                </div> */}
             </div>
         </nav >
     )
