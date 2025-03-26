@@ -34,8 +34,8 @@ export default function RootLayout({
     },
     {
       id: 1,
-      imageSrc1: '/banner/slider-niad1.png',
-      imageSrc2: '/banner/slider-níad2.png',
+      imageSrc1: '/banner/slider-níad2.png',
+      imageSrc2: '/banner/slider-niad1.png',
       span1: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
@@ -50,8 +50,8 @@ export default function RootLayout({
     },
     {
       id: 1,
-      imageSrc1: '/banner/slider-niad1.png',
-      imageSrc2: '/banner/slider-níad2.png',
+      imageSrc1: '/banner/slider-níad2.png',
+      imageSrc2: '/banner/slider-niad1.png',
       span1: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
