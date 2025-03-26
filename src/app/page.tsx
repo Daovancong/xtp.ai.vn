@@ -81,7 +81,7 @@ export default function Home() {
   ])
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 11) % items.length);                                   
+    setCurrentIndex((prevIndex) => (prevIndex + 11) % items.length);
   };
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + items.length) % items.length);
@@ -158,7 +158,7 @@ export default function Home() {
               <div className="flex-[9] bg-[#f8b133]"></div>
             </div>
             <h2 className="mt-4">
-              CÁC THỰC TẬP VIÊN ĐANG  HỌC TRÊN CÁC DỰ ÁN THỰC TẾ
+              DỰ ÁN TIÊU BIỂU CỦA CHÚNG TÔI
             </h2>
           </div>
         </div>
