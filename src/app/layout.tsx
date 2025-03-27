@@ -20,7 +20,7 @@ export default function RootLayout({
       id: 1,
       imageSrc1: '/banner/slider-niad1.png',
       imageSrc2: '/banner/slider-níad2.png',
-      span1: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
+      span1: 'NIAD CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
     },
@@ -28,15 +28,15 @@ export default function RootLayout({
       id: 2,
       imageSrc1: '/banner/slider-níad2.png',
       imageSrc2: '/banner/slider-niad1.png',
-      span1: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
-      span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
+      span2: 'NIAD CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
+      span1: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
     },
     {
       id: 3,
       imageSrc1: '/banner/slider-niad1.png',
       imageSrc2: '/banner/slider-níad2.png',
-      span1: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
+      span1: 'NIAD CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
     },
@@ -44,8 +44,8 @@ export default function RootLayout({
       id: 4,
       imageSrc1: '/banner/slider-níad2.png',
       imageSrc2: '/banner/slider-niad1.png',
-      span1: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
-      span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
+      span2: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
+      span1: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
     },
     //   {
@@ -240,7 +240,7 @@ export default function RootLayout({
                       </span>
                     </div>
                     <Image
-                      className={`${style.bannerG} object-cover max-h-full h-[18vh] w-1/2 px-[1px] max-720:hidden`}
+                      className={`${style.bannerG} object-cover max-h-full h-[18vh] w-1/2 px-[1px] max-720:!hidden`}
                       width={1000}
                       height={300}
                       src={banner.imageSrc2}
