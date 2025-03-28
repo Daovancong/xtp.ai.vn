@@ -23,6 +23,8 @@ export default function RootLayout({
       span1: 'NIAD CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
+      href_1: 'https://www.nganluc.vn/vn/cung-cap-cho-thue-atm-va-thiet-bi-back-end-system.html',
+      href_2: 'https://www.nganluc.vn/vn/ban-xe-oto-thuong-mai-chuyen-dung.html',
     },
     {
       id: 2,
@@ -31,6 +33,8 @@ export default function RootLayout({
       span2: 'NIAD CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span1: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
+      href_1: 'https://www.nganluc.vn/vn/cung-cap-cho-thue-atm-va-thiet-bi-back-end-system.html',
+      href_2: 'https://www.nganluc.vn/vn/ban-xe-oto-thuong-mai-chuyen-dung.html',
     },
     {
       id: 3,
@@ -39,6 +43,8 @@ export default function RootLayout({
       span1: 'NIAD CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span2: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
+      href_1: 'https://www.nganluc.vn/vn/cung-cap-cho-thue-atm-va-thiet-bi-back-end-system.html',
+      href_2: 'https://www.nganluc.vn/vn/ban-xe-oto-thuong-mai-chuyen-dung.html',
     },
     {
       id: 4,
@@ -47,6 +53,8 @@ export default function RootLayout({
       span2: 'BIC CUNG CẤP, CHO THUÊ ATM, CRM, TCR VÀ SYSTEM',
       span1: 'SẢN PHẨM XE CHỞ TIỀN LẦN ĐẦU TIÊN ĐƯỢC LẮP RÁP TẠI VIỆT NAM',
       imgAlt: 'Global AI Summit',
+      href_1: 'https://www.nganluc.vn/vn/cung-cap-cho-thue-atm-va-thiet-bi-back-end-system.html',
+      href_2: 'https://www.nganluc.vn/vn/ban-xe-oto-thuong-mai-chuyen-dung.html',
     },
     //   {
     //     id: 2,
@@ -227,25 +235,29 @@ export default function RootLayout({
                         {banner.span1}
                       </span>
                     </div>
-                    <Image
-                      className={`${style.bannerG} object-cover max-h-full h-[18vh] w-1/2 px-[1px] max-720:w-full`}
-                      width={1000}
-                      height={300}
-                      src={banner.imageSrc1}
-                      alt={banner.imgAlt}
-                    />
+                    <Link className="w-full cursor-pointer" href={banner.href_1}>
+                      <Image
+                        className={`${style.bannerG} object-cover max-h-full h-[18vh] w-full px-[1px] max-720:w-full`}
+                        width={1000}
+                        height={300}
+                        src={banner.imageSrc1}
+                        alt={banner.imgAlt}
+                      />
+                    </Link>
                     <div className="absolute float-left left-1/2 w-[335px] h-full flex items-center ml-3 text-xl font-bold text-white drop-shadow-[1px_1px_1px_#006e3b] max-1200:w-[250px] max-1083:text-base max-1083:w-[200px] max-720:hidden">
                       <span>
                         {banner.span2}
                       </span>
                     </div>
-                    <Image
-                      className={`${style.bannerG} object-cover max-h-full h-[18vh] w-1/2 px-[1px] max-720:!hidden`}
-                      width={1000}
-                      height={300}
-                      src={banner.imageSrc2}
-                      alt={banner.imgAlt}
-                    />
+                    <Link className="w-full cursor-pointer max-720:!hidden" href={banner.href_2}>
+                      <Image
+                        className={`${style.bannerG} object-cover max-h-full h-[18vh] w-full px-[1px] max-720:!hidden`}
+                        width={1000}
+                        height={300}
+                        src={banner.imageSrc2}
+                        alt={banner.imgAlt}
+                      />
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -281,7 +293,7 @@ export default function RootLayout({
               <aside className={`${style.banerRight} w-[15%] top-[20vh] bg-gray-100 fixed right-0 h-[100vh] z-[999]`}>
                 <div>
                   <div className='p-2 !pt-0 mb-2'>
-                    <Link href={'#'}>
+                    <Link href={'https://bic.vn/ttsp/bao-hiem-suc-khoe/bic-smart-care-bao-hiem-suc-khoe-cao-cap.html'}>
                       <Image className='w-full h-[20vh]' width={700} height={70} src="/banner/bic-smart-care-bao-hiem-suc-khoe-cao-cap.jpg" alt="image banner left" />
                       <div className='mt-3'>
                         <div className='text-sm text-gray-500 mb-2 max-1316:text-sx max-1083:text-[.9rem] max-800:text-[.6rem]'>18.02.2025</div>
@@ -292,7 +304,7 @@ export default function RootLayout({
                     </Link>
                   </div>
                   <div className='p-2 !pt-0'>
-                    <Link href={'#'}>
+                    <Link href={'https://bic.vn/ttsp/bao-hiem-suc-khoe/bao-hiem-y-te-bo-tro.html'}>
                       <Image className='w-full h-[20vh]' width={700} height={70} src="/banner/bao-hiem-y-te-bo-tro.jpg" alt="image banner left" />
                       <div className='mt-3'>
                         <div className='text-sm text-gray-500 mb-2 max-1316:text-sx max-1083:text-[.9rem] max-800:text-[.6rem]'>18.02.2025</div>

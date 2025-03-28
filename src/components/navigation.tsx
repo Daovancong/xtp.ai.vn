@@ -147,7 +147,7 @@ export default function Navigation() {
                             </Link>
                             <ul className={`${style.subMenu} z-[99999]`}>
                                 <li>
-                                    <Link className='text-white !text-left' href={'#'}> Hitech </Link>
+                                    <Link className='text-white !text-left' href={'https://hitech-xtp.vercel.app/'}> Hitech </Link>
                                 </li>
                                 <li>
                                     <Link
@@ -161,7 +161,7 @@ export default function Navigation() {
                                     <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className='text-white !text-left' href={'https://www.nganluc.com/'}>
+                                        className='text-white !text-left' href={'https://www.nganluc.vn/'}>
                                         Niad
                                     </Link>
                                 </li>
@@ -482,7 +482,7 @@ export default function Navigation() {
 
                             >
                                 <li className='!ml-3 py-3'>
-                                    <Link className='text-white !text-left' href={'#'}> Hitech </Link>
+                                    <Link className='text-white !text-left' href={'https://hitech-xtp.vercel.app/'}> Hitech </Link>
                                 </li>
                                 <li className='!ml-3 py-3'>
                                     <Link
@@ -496,7 +496,7 @@ export default function Navigation() {
                                     <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className='text-white !text-left' href={'https://www.nganluc.com/'}>
+                                        className='text-white !text-left' href={'https://www.nganluc.vn/'}>
                                         Niad
                                     </Link>
                                 </li>
