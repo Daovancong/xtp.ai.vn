@@ -659,7 +659,20 @@ main .whyBox .firstLine .content {
     z-index: 1;
 }
 
+.swiper {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
 .swiperContainer .swiperWrapper {
+    align-items: center;
+}
+
+.swiper .swiperWrapper {
     align-items: center;
 }
 
