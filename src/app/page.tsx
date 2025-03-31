@@ -76,26 +76,35 @@ export default function Home() {
       id: 1,
       src: "/partners/Logo-hanh-chinh-cong.jpg",
       alt: "Logo Viettel Post",
+      widthRatio: 8,
     },
     {
       id: 2,
       src: "/partners/bo-y-te.png",
+      widthRatio: 8,
     },
     {
       id: 3,
       src: "/partners/logo-giao-duc-2.jpg",
+      widthRatio: 5,
     },
     {
       id: 4,
       src: "/partners/bidv-logo.png",
+      widthRatio: 5,
+      width: '100%',
     },
     {
       id: 5,
       src: "/partners/niad-logo-2.jpg",
+      widthRatio: 5,
+      width: '100%',
     },
     {
       id: 6,
       src: "/partners/virtnam-post-logo.png",
+      widthRatio: 5,
+      width: '100%',
     }
   ])
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -490,9 +499,10 @@ export default function Home() {
               <div className="w-full overflow-hidden bg-white py-4 relative">
                 <div className="flex gap-16 animate-slide">
                   {[...logos, ...logos].map((logo, index) => (
-                    <div key={index} className="flex-shrink-0 w-[calc(100%/8)] flex justify-center items-center ">
+                    <div key={index} className="flex-shrink-0 w-[calc(100%/8)] flex justify-center items-center " style={{ width: `calc(100% / ${logo.widthRatio})` }} >
                       <Image width={1000} height={300}
                         className='w-auto max-w-full max-h-full'
+                        style={{ width: logo.width }}
                         src={logo.src} alt={logo.src} />
                     </div>
                   ))}
